@@ -12,3 +12,21 @@ Columnmean<-function(y,removeNA=TRUE) {
           }
           means
 }
+
+make.power<-function(n){
+        pow<-function(x){
+          x^n
+        }
+        pow
+}
+
+
+read<- function(directory,id){
+  filename<-paste(sprintf("%03d",id),".csv",sep="")
+  data<-read.csv(file=file.path(directory,filename),header=TRUE)
+  data
+}
+cube<-make.power(3)
+square<-make.power(2)
+
+                                
