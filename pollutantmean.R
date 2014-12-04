@@ -3,12 +3,12 @@ pollutantmean<- function(directory, pollutant, id ) {
   ## 'pollutant' is the name of the pollutant for which we will calculate the mean; 
   ## 'id' is an integer vector indicating the monitor ID numbers
   len<-length(id)
-  means<-rep(NA,len)
+  means<-rep(NA,len)# create the file that will hold the mean values
   
-  for (i in id){
+  for (i in id){  # start looping over the index
     
     filename<-paste(sprintf("%03d",i),".csv",sep="")
-    data<-read.csv(file=file.path(directory,filename),header=TRUE)
+    data<-read.csv(file=file.path(directory,filename),header=TRUE) #opening file
     means[i]<-mean(data[,pollutant],na.rm=TRUE)
   }
   mean_final<-mean(means,na.rm=TRUE)
